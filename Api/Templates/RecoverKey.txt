@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Correo - Recuperar Contraseña</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+            <style>
+                body {
+                    font-family: mukta, arial;
+                }
+
+                .contenedor {
+                    width: 620px;
+                    border-radius: 7px;
+                    margin: 0 auto;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                }
+
+                .caja-logo {
+                    text-align: center;
+                    height: 100px;
+                    background-color: #003876;
+                    border-radius: 7px 7px 0px 0px;
+                }
+
+                .logo-segm {
+                    width: 52%;
+                    margin-right: 10px;
+                    margin-top: 15px;
+                }
+
+                .cuerpo {
+                    background-color: rgb(255, 255, 255);
+                    padding: 26px 60px 40px 50px;
+                    border-radius: 7px;
+                }
+
+                .titulo {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 18px;
+                }
+
+                .blue-check-mark-icon {
+                    width: 30px;
+                    margin-bottom: 3px;
+                }
+
+                h1 {
+                    color: #003876;
+                    font-size: 28px;
+                    text-align: center;
+                    margin-top: 0px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 18px;
+                    line-height: 24px;
+                    margin-top: 0px;
+                    margin-bottom: 25px;
+                }
+
+                .boton-contenedor {
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                }
+
+                button {
+                    background-color: #003876;
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 700;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 12px 20px;
+                    cursor: pointer;
+                    transition: background-color 0.2s;
+                }
+
+                button:hover {
+                    background-color: #0f4e96;
+                }
+
+                button:active {
+                    background-color: #175dae;
+                }
+
+                span {
+                    font-weight: 700;
+                }
+
+                .sub-usuario {
+                    color: #003876;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="contenedor">
+                <div class="caja-logo">
+                    <img class="logo-segm" src="https://directorio.calidadrd.do/assets/images/GBDSCLogo.svg">
+                </div>
+                <div class="cuerpo">
+                    <h1>RECUPERAR CONTRASEÑA</h1>
+                    <!-- <div class="cuerpo">
+                        <h1>RECUPERAR CONTRASEÑA</h1>
+                        <p>
+                            Estimado (a) <span>{{Tittle}}</span>, la solicitud para recuperar su contraseña de usuario ha sido recibida. 
+                            Pulse el siguiente botón para completar el proceso de recuperación:
+                        </p>
+                        <div class="boton-contenedor">
+                            {{boton}} <br> <br> 
+                        </div>
+                        <p>
+                            En caso de requerir soporte técnico o desee enviar sus sugerencias, puede escribir a la siguiente dirección de correo electrónico: segm@micm.gob.do. 
+                            Las solicitudes de soporte técnico son respondidas por orden de llegada en un plazo máximo de cinco (5) dias laborables.El horario de atención es de lunes a viernes de 8am a 4pm.
+                        </p>
+                    </div> -->
+
+                    <p style="font-size: 18px;"> Estimado (a) <span>{{Tittle}}</span>, la solicitud para recuperar su contraseña de usuario ha sido recibida. 
+                        Pulse el siguiente botón para completar el proceso de recuperación:</p>
+
+                        <div class="boton-contenedor">
+                            {{boton}} <br> </br> 
+                        </div>
+
+                        <p style="font-size: 16px;">En caso de requerir información adicional, escribanos a la siguiente dirección de correo electrónico: 
+                       <strong>sgd-envios@hotmail.com.</strong> <br/>.</p>                 
+                </div>
+            </div>
+        </body>
+    </html>

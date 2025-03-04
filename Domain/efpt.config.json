@@ -1,0 +1,153 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "sgbgroupdbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "SGDPEDIDOS.Domain",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[companies]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Departments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[favorites]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[genders]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[images]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[invoices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[invoices_details]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[invoices_details_new]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[logs_credits_balances]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[logs_credits_users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[menus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[orders_status]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[payment_methods]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RecoverKey]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Sheet1$]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[suggestions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[supplier_company]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[type_suggestions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[types_companies]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[types_identifications]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[types_menus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[users_types]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[weekly_days]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[weekly_menus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[weekly_menus_details]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[v_report_supplier]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[v_report_supplier_group]",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "vmi1389457.sgbgroupdb.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
