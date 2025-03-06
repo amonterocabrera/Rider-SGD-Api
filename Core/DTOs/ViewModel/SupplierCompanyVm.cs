@@ -11,7 +11,7 @@ namespace SGDPEDIDOS.Application.DTOs.ViewModel
         public int SupplierCompanyId { get; set; }
 
         public int CompanyId { get; set; }
-        public string Supplier { get; set; }
+        public string SupplierName { get; set; }
 
         public int SupplierId { get; set; }
 

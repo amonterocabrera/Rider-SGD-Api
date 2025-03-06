@@ -8,8 +8,10 @@ namespace SGDPEDIDOS.Application.DTOs.ViewModel
 {
     public class SupplierCompanyViewVm
     {
-       
+
+        public int CompanyId { get; set; }
         public int SupplierId { get; set; }
+        public int SupplierCompanyId { get; set; }
         public string SupplierName { get; set; }
 
     }

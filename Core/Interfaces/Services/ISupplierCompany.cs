@@ -16,7 +16,7 @@ namespace SGDPEDIDOS.Application.Interfaces.Services
 
         Task<Response<SupplierCompanyVm>> UpdateAsync(int id, SupplierCompanyDto dto);
 
-        Task<Response<IList<SupplierCompanyViewVm>>> GetAllAsync();
+        Task<Response<IList<SupplierCompanyViewVm>>> GetAllAsync(int? companyId);
         Task<Response<IList<SupplierCompanyViewVm>>> GetALLGetAllCompanyAsync();
         Task<Response<SupplierCompanyVm>> GetByIdAsync(int id);
 

@@ -39,9 +39,9 @@ namespace SGDPEDIDOS.Api.Controllers
 
         [HttpGet("GetAllSupplierCompany")]
         [ProducesResponseType(typeof(Response<SupplierCompanyViewVm>), 200)]
-        public async Task<IActionResult> GetALLAsync()
+        public async Task<IActionResult> GetALLAsync(int? companyId)
         {
-            return Ok(await _Service.GetAllAsync());
+            return Ok(await _Service.GetAllAsync(companyId));
         }
 
 
@@ -63,7 +63,7 @@ namespace SGDPEDIDOS.Api.Controllers
         [ProducesResponseType(typeof(Response<IList<SupplierCompanyVm>>), 200)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SupplierCompanyDto obj)
         {
-            return Ok(await _Service.UpdateAsync(id, obj));
+            return Ok(await _Service.UpdateAsync(obj.SupplierCompanyId, obj));
         }
 
     }

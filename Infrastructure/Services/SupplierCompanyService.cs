@@ -12,6 +12,7 @@ using SGDPEDIDOS.Domain.Entities;
 using SGDPEDIDOS.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -31,6 +32,7 @@ namespace SGDPEDIDOS.Infrastructure.Services
             _SupplierCompanyRepo = SupplierCompanyRepo;
             _principalRepo = principalRepo; 
             _mapper = mapper;
+            _validator = validator;
 
         }
         private async Task<bool> ExitsAsync(int Id)
@@ -42,30 +44,42 @@ namespace SGDPEDIDOS.Infrastructure.Services
 
         public async Task<Response<SupplierCompanyVm>> InsertAsync(SupplierCompanyDto dto)
         {
-
             var valResult = _validator.Validate(dto);
-            if (!valResult.IsValid) throw new ApiValidationException(valResult.Errors);
+            if (!valResult.IsValid)
+                throw new ApiValidationException(valResult.Errors);
 
+            
             var obj = _mapper.Map<SupplierCompany>(dto);
 
-            obj.IsActive = true;
+            
+            var existingSupplier = await _SupplierCompanyRepo
+                .WhereAsync(s => s.CompanyId == dto.CompanyId && s.SupplierId == dto.SupplierId);
 
+            if (existingSupplier != null)
+            {              
+                existingSupplier.IsActive = true;
+             
+                await _SupplierCompanyRepo.UpdateAsync(existingSupplier);
 
-            return new Response<SupplierCompanyVm>(_mapper.Map<SupplierCompanyVm>(await _SupplierCompanyRepo.AddAsync(obj)));
+                return new Response<SupplierCompanyVm>(_mapper.Map<SupplierCompanyVm>(existingSupplier));
+            }
+            else
+            {               
+                obj.IsActive = true;                
+                var insertedSupplier = await _SupplierCompanyRepo.AddAsync(obj);
+                return new Response<SupplierCompanyVm>(_mapper.Map<SupplierCompanyVm>(insertedSupplier));
+            }
+
 
         }
 
         public async Task<Response<SupplierCompanyVm>> UpdateAsync(int id, SupplierCompanyDto dto)
         {
-            var valResult = _validator.Validate(dto);
-            if (!valResult.IsValid) throw new ApiValidationException(valResult.Errors);
-
+        
             await ExitsAsync(id);
 
             var objDb = await _SupplierCompanyRepo.WhereAsync(x => x.SupplierCompanyId.Equals(id));
-            var obj = _mapper.Map<SupplierCompany>(dto);
-
-            obj.IsActive = false;
+            var obj = _mapper.Map<SupplierCompany>(dto);          
 
 
             return new Response<SupplierCompanyVm>(_mapper.Map<SupplierCompanyVm>(await _SupplierCompanyRepo.UpdateAsync(obj)));
@@ -82,24 +96,21 @@ namespace SGDPEDIDOS.Infrastructure.Services
             return new Response<SupplierCompanyVm>(_mapper.Map<SupplierCompanyVm>(data));
         }
 
-        public async Task<Response<IList<SupplierCompanyViewVm>>> GetAllAsync()
+        public async Task<Response<IList<SupplierCompanyViewVm>>> GetAllAsync(int? companyId =0)
         {
-            int companyId = base.GetLoggerUserOrganizationId();
+            int? companyIdDB = companyId == null ? base.GetLoggerUserOrganizationId() : companyId;
        
 
             var viewModelList = await (from supplierCompany in _principalRepo.SupplierCompany
-                                       join company in _principalRepo.Companies on supplierCompany.CompanyId equals company.CompanyId
-                                       where supplierCompany.CompanyId == companyId && supplierCompany.IsActive == true
+                                       join company in _principalRepo.Companies on supplierCompany.SupplierId equals company.CompanyId
+                                       where supplierCompany.CompanyId == companyIdDB && supplierCompany.IsActive == true
                                        select new SupplierCompanyViewVm
                                        {
                                            SupplierId = supplierCompany.SupplierId,
-                                           SupplierName = company.CompanyName
+                                           SupplierName = company.BrandName,
+                                           SupplierCompanyId = supplierCompany.SupplierCompanyId,
+                                           CompanyId = supplierCompany.CompanyId
                                        }).Distinct().ToListAsync();
-
-            if (!viewModelList.Any())
-            {
-                throw new KeyNotFoundException("No matching SupplierCompany found");
-            }
 
             return new Response<IList<SupplierCompanyViewVm>>(viewModelList);
         }

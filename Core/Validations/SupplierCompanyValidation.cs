@@ -13,10 +13,7 @@ namespace SGDPEDIDOS.Application.Validations
         public SupplierCompanyValidation()
         {
             RuleFor(x => x.CompanyId).NotNull().WithMessage("CompanyId  es requerido");
-            RuleFor(x => x.SupplierId).NotEmpty().WithMessage("SupplierId es requerido");
-        
-            
-
+            RuleFor(x => x.SupplierId).NotNull().WithMessage("SupplierId es requerido");
         }
     }
 }
